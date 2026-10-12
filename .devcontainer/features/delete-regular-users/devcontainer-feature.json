@@ -1,0 +1,6 @@
+{
+  "id": "delete-regular-users",
+  "version": "1.0.0",
+  "name": "Delete Regular Users",
+  "description": "一般ユーザー (UID 1000 - 60000) とグループを削除"
+}
