@@ -40,9 +40,11 @@
       "extensions": [
         "anthropic.claude-code",
         "EditorConfig.EditorConfig",
+        "ms-vscode.live-server",
         "sohamkamani.code-eol"
       ],
       "settings": {
+        "livePreview.serverRoot": "src",
         "terminal.integrated.defaultProfile.linux": "bash",
         "workbench.colorTheme": "Solarized Light"
       }
