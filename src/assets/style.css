@@ -81,8 +81,6 @@ main li::before {
   content: "-";
   left: -1rem;
   position: absolute;
-  top: 50%;
-  translate: 0 -50%;
 }
 
 main dl {
@@ -92,7 +90,7 @@ main dl {
 
 main dt {
   font-size: 0.707rem;
-  padding: 0.25rem 0;
+  margin-top: 0.5rem;
   position: relative;
 }
 
@@ -101,8 +99,7 @@ main dt::before {
   font-size: 1rem;
   left: -1rem;
   position: absolute;
-  top: 50%;
-  translate: 0 -50%;
+  top: calc((0.707rem - 1rem) * 1.5 / 2);
 }
 
 main p {
