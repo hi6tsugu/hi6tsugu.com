@@ -15,6 +15,14 @@ body {
   word-break: auto-phrase;
 }
 
+body                       { --theme-color: #777; }
+body[data-theme="red"]     { --theme-color: #700; }
+body[data-theme="green"]   { --theme-color: #070; }
+body[data-theme="blue"]    { --theme-color: #007; }
+body[data-theme="cyan"]    { --theme-color: #077; }
+body[data-theme="magenta"] { --theme-color: #707; }
+body[data-theme="yellow"]  { --theme-color: #770; }
+
 header,
 main,
 footer {
@@ -106,13 +114,37 @@ main small {
 }
 
 main a {
-  color: #777;
+  color: var(--theme-color);
   transition: color 1s 1s;
 }
 
-body[data-theme="red"]     main a { color: #700; }
-body[data-theme="green"]   main a { color: #070; }
-body[data-theme="blue"]    main a { color: #007; }
-body[data-theme="cyan"]    main a { color: #077; }
-body[data-theme="magenta"] main a { color: #707; }
-body[data-theme="yellow"]  main a { color: #770; }
+main noscript p {
+  background-color: var(--theme-color);
+  color: #fff;
+  padding: 1rem;
+}
+
+main label {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+  width: fit-content;
+}
+
+main input {
+  accent-color: var(--theme-color);
+  font-family: monospace;
+  transition: color 1s 1s;
+}
+
+main textarea {
+  font-family: monospace;
+  padding: 0.5rem;
+  resize: vertical;
+  width: 100%;
+}
+
+main button {
+  padding: 0.5rem;
+  width: 100%;
+}
