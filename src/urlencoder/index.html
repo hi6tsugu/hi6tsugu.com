@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="description" content="URLEncoder: URL エンコード (URL デコード) の変換ができるオンラインツール">
+    <title>URLEncoder - hi6tsugu.com</title>
+    <link rel="canonical" href="https://hi6tsugu.com/urlencoder/">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/theme.js"></script>
+    <script defer src="/assets/urlencode.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" width="128" height="128" alt="">
+        hi6tsugu.com
+      </a>
+    </header>
+    <main>
+      <hgroup>
+        <h1>URLEncoder</h1>
+        <p>URL エンコード (URL デコード) 変換オンラインツール</p>
+      </hgroup>
+      <noscript>
+        <p>URLEncoder の動作には JavaScript が必要です。<br>JavaScript を有効にしてください。</p>
+      </noscript>
+      <form>
+        <h2>ソース、条件</h2>
+        <p><textarea name="source" cols="80" rows="10"></textarea></p>
+        <ul>
+          <li><label><input type="radio" name="action" value="encode-%20" checked> エンコード (半角スペースは %20)</label></li>
+          <li><label><input type="radio" name="action" value="encode-+"> エンコード (半角スペースは +)</label></li>
+          <li><label><input type="radio" name="action" value="decode"> デコード</label></li>
+        </ul>
+        <p><button type="button">実行</button></p>
+        <output>
+          <h2>結果</h2>
+          <p><textarea name="result" cols="80" rows="10"></textarea></p>
+        </output>
+      </form>
+    </main>
+    <footer>
+      <p>© 2026 Ootani Hirotsugu</p>
+    </footer>
+  </body>
+</html>
