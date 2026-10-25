@@ -131,12 +131,16 @@ main label {
 main input {
   accent-color: var(--theme-color);
   font-family: monospace;
-  padding: 0.25rem;
+  padding: 0.5rem;
   transition: color 1s 1s;
 }
 
 main input[type="number" i] {
   margin-top: 0.25rem;
+}
+
+main input[type="text" i] {
+  width: 100%;
 }
 
 main textarea {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="description" content="BookmarkletMaker: ブックマークレットの簡易な作成ができるオンラインツール">
+    <title>BookmarkletMaker - hi6tsugu.com</title>
+    <link rel="canonical" href="https://hi6tsugu.com/bookmarkletmaker/">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/theme.js"></script>
+    <script defer src="/assets/bookmarkletmake.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" width="128" height="128" alt="">
+        hi6tsugu.com
+      </a>
+    </header>
+    <main>
+      <hgroup>
+        <h1>BookmarkletMaker</h1>
+        <p>ブックマークレット簡易作成オンラインツール</p>
+      </hgroup>
+      <noscript>
+        <p>BookmarkletMaker の動作には JavaScript が必要です。<br>JavaScript を有効にしてください。</p>
+      </noscript>
+      <form>
+        <h2>ソース</h2>
+        <p>&lt;a href=&quot;javascript:(function () {</p>
+        <p><textarea name="script" cols="80" rows="10" placeholder="alert('Hello!');" title="スクリプト"></textarea></p>
+        <ul>
+          <li><label><input type="checkbox" name="encode-line-break"> 改行をエンコード</label></li>
+        </ul>
+        <p>})();&quot;&gt;</p>
+        <p><input type="text" name="title" placeholder="Bookmarklet" title="タイトル"></p>
+        <p>&lt;/a&gt;</p>
+        <p><button type="button">実行</button></p>
+        <output>
+          <h2>結果</h2>
+          <p><a href="javascript:(function () { alert('Hello!'); })();">Bookmarklet</a></p>
+        </output>
+      </form>
+    </main>
+    <footer>
+      <p>© 2026 Ootani Hirotsugu</p>
+    </footer>
+  </body>
+</html>
