@@ -1,37 +1,20 @@
 (function () {
-  const source = document.getElementsByName('source')[0];
-  const result = document.getElementsByName('result')[0];
-  const conditions = document.getElementsByTagName('input');
-  const targets = ['all', 'some'];
-  function entitize() {
-    let target = '';
-    const excludeds = {
-      lineBreak: false,
-    };
-    for (const condition of conditions) {
-      switch (condition.name) {
-        case 'target':
-          if (condition.checked && targets.includes(condition.value)) {
-            target = condition.value;
-          }
-          break;
-        case 'exclude-line-break':
-          excludeds.lineBreak = condition.checked;
-          break;
-      }
-    }
-    if (target === '') {
+  const form = {
+    source: document.getElementsByName('source')[0],
+    targets: document.getElementsByName('target'),
+    result: document.getElementsByName('result')[0],
+  };
+  const targetValues = ['all', 'some'];
+  function handle() {
+    const target = [...form.targets].find((e) => e.checked)?.value;
+    form.result.value = '';
+    if (!targetValues.includes(target)) {
       alert('対象を選択してください');
       return;
     }
-    result.value = [...source.value].map((element) => {
-      if (element === '\n' && excludeds.lineBreak) {
-        return element;
-      } else if (target === 'some' && Math.round(Math.random())) {
-        return element;
-      }
-      return `&#${element.codePointAt(0)};`;
-    }).join('');
+    form.result.value = [...form.source.value].map(
+      (c) => (target === 'some' && Math.round(Math.random())) ? c : `&#${c.codePointAt(0)};`
+    ).join('');
   }
-  document.getElementsByTagName('button')[0].addEventListener('click', entitize);
+  document.getElementsByTagName('button')[0].addEventListener('click', handle);
 })();

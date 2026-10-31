@@ -28,7 +28,7 @@
       </noscript>
       <form>
         <h2>ソース、条件</h2>
-        <p><textarea name="source" cols="80" rows="10"></textarea></p>
+        <p><textarea name="source" cols="80" rows="10" aria-label="ソース"></textarea></p>
         <ul>
           <li><label><input type="radio" name="action" value="encode-%20" checked> エンコード (半角スペースは %20)</label></li>
           <li><label><input type="radio" name="action" value="encode-+"> エンコード (半角スペースは +)</label></li>
@@ -37,7 +37,7 @@
         <p><button type="button">実行</button></p>
         <output>
           <h2>結果</h2>
-          <p><textarea name="result" cols="80" rows="10"></textarea></p>
+          <p><textarea name="result" cols="80" rows="10" aria-label="結果" readonly></textarea></p>
         </output>
       </form>
     </main>

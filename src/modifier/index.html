@@ -28,21 +28,21 @@
       </noscript>
       <form>
         <h2>ソース、条件</h2>
-        <p><textarea name="source" cols="80" rows="10"></textarea></p>
+        <p><textarea name="source" cols="80" rows="10" aria-label="ソース"></textarea></p>
         <ul>
-          <li><label><input type="checkbox" name="replace-indent"> インデントの全角スペースとタブを半角スペース 2 個に置換</label></li>
+          <li><label><input type="checkbox" name="replace-tabindent"> タブインデントを半角スペース 2 個に置換</label></li>
           <li><label><input type="checkbox" name="delete-whitespace-start"> 行頭のホワイトスペースを削除</label></li>
           <li><label><input type="checkbox" name="delete-whitespace-end"> 行末のホワイトスペースを削除</label></li>
-          <li><label><input type="checkbox" name="delete-line-blank"> 空行を削除</label></li>
-          <li><label><input type="checkbox" name="replace-line-break"> 改行を半角スペース 1 個に置換</label></li>
-          <li><label><input type="checkbox" name="delete-line-break"> 改行を削除</label></li>
+          <li><label><input type="checkbox" name="delete-blankline"> 空行を削除</label></li>
+          <li><label><input type="checkbox" name="replace-linebreak"> 改行を半角スペース 1 個に置換</label></li>
+          <li><label><input type="checkbox" name="delete-linebreak"> 改行を削除</label></li>
           <li><label><input type="checkbox" name="escape"> 特殊文字をエスケープ (&amp; &lt; &gt; &quot; &apos;)</label></li>
           <li><label><input type="checkbox" name="unescape"> 特殊文字をアンエスケープ</label></li>
         </ul>
         <p><button type="button">実行</button></p>
         <output>
           <h2>結果</h2>
-          <p><textarea name="result" cols="80" rows="10"></textarea></p>
+          <p><textarea name="result" cols="80" rows="10" aria-label="結果" readonly></textarea></p>
         </output>
       </form>
     </main>

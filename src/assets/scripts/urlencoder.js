@@ -1,35 +1,33 @@
 (function () {
-  const source = document.getElementsByName('source')[0];
-  const result = document.getElementsByName('result')[0];
-  const conditions = document.getElementsByTagName('input');
-  const actions = ['encode-%20', 'encode-+', 'decode'];
-  function urlencode() {
-    let value = source.value;
-    let action = '';
-    for (const condition of conditions) {
-      if (condition.checked && actions.includes(condition.value)) {
-        action = condition.value;
-      }
-    }
-    if (action === '') {
+  const form = {
+    source: document.getElementsByName('source')[0],
+    actions: document.getElementsByName('action'),
+    result: document.getElementsByName('result')[0],
+  };
+  const actionValues = ['encode-%20', 'encode-+', 'decode'];
+  function handle() {
+    const action = [...form.actions].find((e) => e.checked)?.value;
+    form.result.value = '';
+    if (!actionValues.includes(action)) {
       alert('1 つ選択してください');
       return;
     }
     try {
+      let data = form.source.value;
       if (action === 'decode') {
-        value = decodeURIComponent(value.replace(/\+/g, ' '));
+        data = decodeURIComponent(data.replace(/\+/g, ' '));
       } else {
-        value = encodeURIComponent(value).replace(
-          /[!'()*]/g, (match) => `%${match.charCodeAt(0).toString(16).toUpperCase()}`
+        data = encodeURIComponent(data).replace(
+          /[!'()*]/g, (m) => `%${m.charCodeAt(0).toString(16).toUpperCase()}`
         );
         if (action === 'encode-+') {
-          value = value.replace(/%20/g, '+');
+          data = data.replace(/%20/g, '+');
         }
       }
-      result.value = value;
+      form.result.value = data;
     } catch (e) {
-      alert('文字列に問題があるため変換できませんでした\n' + e);
+      alert(`文字列に問題があるため変換できませんでした\n${e}`);
     }
   }
-  document.getElementsByTagName('button')[0].addEventListener('click', urlencode);
+  document.getElementsByTagName('button')[0].addEventListener('click', handle);
 })();

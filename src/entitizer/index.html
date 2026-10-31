@@ -28,18 +28,15 @@
       </noscript>
       <form>
         <h2>ソース、条件</h2>
-        <p><textarea name="source" cols="80" rows="10"></textarea></p>
-        <dl>
-          <dt>対象</dt>
-          <dd><label><input type="radio" name="target" value="all"> 全部の文字</label></dd>
-          <dd><label><input type="radio" name="target" value="some" checked> ランダムに一部の文字</label></dd>
-          <dt>除外</dt>
-          <dd><label><input type="checkbox" name="exclude-line-break" checked> 改行</label></dd>
-        </dl>
+        <p><textarea name="source" cols="80" rows="10" aria-label="ソース"></textarea></p>
+        <ul>
+          <li></li><label><input type="radio" name="target" value="all"> 全部の文字を変換</label></li></li>
+          <li></li><label><input type="radio" name="target" value="some" checked> ランダムに一部の文字を変換</label></li></li>
+        </ul>
         <p><button type="button">実行</button></p>
         <output>
           <h2>結果</h2>
-          <p><textarea name="result" cols="80" rows="10"></textarea></p>
+          <p><textarea name="result" cols="80" rows="10" aria-label="結果" readonly></textarea></p>
         </output>
       </form>
     </main>
