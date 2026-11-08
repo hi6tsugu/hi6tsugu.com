@@ -45,8 +45,7 @@
       ],
       "settings": {
         "livePreview.serverRoot": "src",
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "workbench.colorTheme": "Solarized Light"
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   }
