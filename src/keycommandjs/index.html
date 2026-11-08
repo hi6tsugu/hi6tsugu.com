@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="description" content="KeyCommandJS: 簡易なコマンドを実装できるライブラリー">
+    <title>KeyCommandJS - hi6tsugu.com</title>
+    <link rel="canonical" href="https://hi6tsugu.com/keycommandjs/">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/scripts/theme.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" width="128" height="128" alt="">
+        hi6tsugu.com
+      </a>
+    </header>
+    <main>
+      <hgroup>
+        <h1>KeyCommandJS</h1>
+        <p>簡易コマンド実装ライブラリー</p>
+      </hgroup>
+      <h2>ダウンロード</h2>
+      <ul>
+        <li><a href="/assets/downloads/keycommand-2.20160829.js" download>keycommand-2.20160829.js</a></li>
+      </ul>
+      <h2>リファレンス</h2>
+      <h3><code>KeyCommand.set(sequence, done)</code></h3>
+      <p>コマンドを登録。<br>成功時はコマンド ID (<code>number</code>)、失敗時は <code>undefined</code> を取得。</p>
+      <dl>
+        <dt><code>sequence: string</code></dt>
+        <dd>シーケンスをキーごとに半角スペースで区切った文字列</dd>
+        <dt><code>done: function(keyStrings: string[])</code></dt>
+        <dd>キー入力がシーケンスと完全に一致したときに実行する処理</dd>
+      </dl>
+      <h3><code>KeyCommand.set(sequence, { done, pass, fail, exclude, listen })</code></h3>
+      <p>コマンドを詳細に登録。<br>成功時はコマンド ID (<code>number</code>)、失敗時は <code>undefined</code> を取得。</p>
+      <dl>
+        <dt><code>sequence: string</code></dt>
+        <dd>シーケンスをキーごとに半角スペースで区切った文字列</dd>
+        <dt><code>done: function(keyStrings: string[])</code></dt>
+        <dd>キー入力がシーケンスと完全に一致したときに実行する処理</dd>
+        <dt><code>pass?: function(keyStrings: string[], index: number)</code></dt>
+        <dd>キー入力がシーケンスの先頭から一致しているときに実行する処理。省略した場合は <code>undefined</code></dd>
+        <dt><code>fail?: function(keyStrings: string[], index: number)</code></dt>
+        <dd>キー入力がシーケンスの先頭から一致しなくなったときに実行する処理。省略した場合は <code>undefined</code></dd>
+        <dt><code>exclude?: string</code></dt>
+        <dd>フォーカスがあるときにキー入力とシーケンスの一致を判定しない要素。CSS セレクターで記述。省略した場合は <code>:not(html):not(body)</code></dd>
+        <dt><code>listen?: boolean</code></dt>
+        <dd>コマンドの状態を設定するフラグ。有効にする場合は <code>true</code>、無効にする場合は <code>false</code>。省略した場合は <code>true</code></dd>
+      </dl>
+      <h3><code>KeyCommand.clear(id)</code></h3>
+      <p>コマンドを削除。</p>
+      <dl>
+        <dt><code>id: number</code></dt>
+        <dd>コマンド ID</dd>
+      </dl>
+      <h3><code>KeyCommand.enable(id)</code></h3>
+      <p>コマンドを有効化。</p>
+      <dl>
+        <dt><code>id: number</code></dt>
+        <dd>コマンド ID</dd>
+      </dl>
+      <h3><code>KeyCommand.disable(id)</code></h3>
+      <p>コマンドを無効化。</p>
+      <dl>
+        <dt><code>id: number</code></dt>
+        <dd>コマンド ID</dd>
+      </dl>
+      <h3><code>KeyCommand.reset(id)</code></h3>
+      <p>キー入力とシーケンスの一致状況をリセット。</p>
+      <dl>
+        <dt><code>id: number</code></dt>
+        <dd>コマンド ID</dd>
+      </dl>
+      <h3><code>KeyCommand.version()</code></h3>
+      <p>バージョン (<code>string</code>) を取得。</p>
+      <h3>シーケンスの使用可能キー</h3>
+      <ul>
+        <li><kbd>0</kbd> - <kbd>9</kbd></li>
+        <li><kbd>A</kbd> - <kbd>Z</kbd></li>
+      </ul>
+      <ul>
+        <li><kbd>LEFT</kbd> | <kbd>←</kbd></li>
+        <li><kbd>UP</kbd> | <kbd>↑</kbd></li>
+        <li><kbd>RIGHT</kbd> | <kbd>→</kbd></li>
+        <li><kbd>DOWN</kbd> | <kbd>↓</kbd></li>
+      </ul>
+      <ul>
+        <li><kbd>BACKSPACE</kbd> | <kbd>BS</kbd></li>
+        <li><kbd>TAB</kbd></li>
+        <li><kbd>ENTER</kbd> | <kbd>RETURN</kbd></li>
+        <li><kbd>SHIFT</kbd></li>
+        <li><kbd>CONTROL</kbd> | <kbd>CTRL</kbd></li>
+        <li><kbd>ALT</kbd></li>
+        <li><kbd>CAPSLOCK</kbd></li>
+        <li><kbd>ESCAPE</kbd> | <kbd>ESC</kbd></li>
+        <li><kbd>SPACE</kbd></li>
+        <li><kbd>PAGEUP</kbd> | <kbd>PGUP</kbd></li>
+        <li><kbd>PAGEDOWN</kbd> | <kbd>PGDN</kbd></li>
+        <li><kbd>END</kbd></li>
+        <li><kbd>HOME</kbd></li>
+        <li><kbd>INSERT</kbd> | <kbd>INS</kbd></li>
+        <li><kbd>DELETE</kbd> | <kbd>DEL</kbd></li>
+      </ul>
+      <ul>
+        <li><kbd>F1</kbd> - <kbd>F12</kbd></li>
+      </ul>
+      <h2>使用例</h2>
+      <dl>
+        <dt>基本</dt>
+        <dd>
+          <pre><code>KeyCommand.set(&apos;H E L L O&apos;, function () {
+  alert(&apos;Hello!&apos;);
+});</code></pre>
+        </dd>
+        <dt>キー入力とシーケンスの一致状況に応じて動作</dt>
+        <dd>
+          <pre><code>KeyCommand.set(&apos;↑ ↑ ↓ ↓ ← → ← → B A&apos;, {
+  done: function (keyStrings) {
+    alert(&apos;&quot;&apos; + keyStrings.join(&apos; &apos;) + &apos;&quot; is KONAMI command&apos;);
+  },
+  pass: function (keyStrings, index) {
+    console.log(&apos;keyStrings[&apos; + index + &apos;]: &apos; + keyStrings[index]);
+  },
+  fail: function (keyStrings, index) {
+    console.log(&apos;Fail...&apos;);
+  }
+});</code></pre>
+        </dd>
+        <dt>1 回だけ動作</dt>
+        <dd>
+          <pre><code>const id1 = KeyCommand.set(&apos;O N C E&apos;, function () {
+  KeyCommand.clear(id1);
+  alert(&apos;ONCE command has been cleared&apos;);
+});</code></pre>
+        </dd>
+        <dt>有効化と無効化</dt>
+        <dd>
+          <pre><code>var id2 = KeyCommand.set(&apos;M O D E&apos;, function () {
+  KeyCommand.disable(id2);
+  KeyCommand.enable(id3);
+  console.log(&apos;MODE command = disable / ESC key = enable&apos;);
+});
+var id3 = KeyCommand.set(&apos;ESC&apos;, {
+  done: function () {
+    KeyCommand.disable(id3);
+    KeyCommand.enable(id2);
+    console.log(&apos;MODE command = enable / ESC key = disable&apos;);
+  },
+  listen: false
+});</code></pre>
+        </dd>
+        <dt>特定の要素を除外</dt>
+        <dd>
+          <pre><code>KeyCommand.set(&apos;SPACE&apos;, {
+  done: function () {
+    console.log(&apos;Focus on non-submittable element&apos;);
+  },
+  exclude: &apos;button, input, keygen, object, select, textarea&apos;
+});</code></pre>
+        </dd>
+      </dl>
+      <h2>注意事項</h2>
+      <ul>
+        <li>シーケンスの使用可能キーにおける大文字と小文字は不問。例えば <kbd>UP</kbd> と <kbd>up</kbd> は同一として処理</li>
+        <li>数字キーとテンキーの <kbd>0</kbd> - <kbd>9</kbd> は標準キーの <kbd>0</kbd> - <kbd>9</kbd> として処理</li>
+      </ul>
+      <h2>更新履歴</h2>
+      <h3>v2.20160829</h3>
+      <ul>
+        <li>フォーカスがあるときにキー入力とシーケンスの一致を判定しない要素を設定するための引数 <code>exclude</code> を <code>KeyCommand.set()</code> に追加。後方互換のためデフォルト値は <code>:not(html):not(body)</code> に設定</li>
+      </ul>
+      <h3>v1.20140629</h3>
+      <ul>
+        <li>新規作成</li>
+      </ul>
+    </main>
+    <footer>
+      <p>© 2026 Ootani Hirotsugu</p>
+    </footer>
+  </body>
+</html>

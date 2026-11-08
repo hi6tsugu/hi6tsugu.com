@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="description" content="Modifier: 表記の簡易な調整ができるオンラインツール">
+    <title>Modifier - hi6tsugu.com</title>
+    <link rel="canonical" href="https://hi6tsugu.com/modifier/">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/scripts/theme.js"></script>
+    <script defer src="/assets/scripts/modifier.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" width="128" height="128" alt="">
+        hi6tsugu.com
+      </a>
+    </header>
+    <main>
+      <hgroup>
+        <h1>Modifier</h1>
+        <p>表記簡易調整オンラインツール</p>
+      </hgroup>
+      <noscript>
+        <p>Modifier の動作には JavaScript が必要です。<br>JavaScript を有効にしてください。</p>
+      </noscript>
+      <form>
+        <h2>ソース、条件</h2>
+        <p><textarea name="source" cols="80" rows="10" aria-label="ソース"></textarea></p>
+        <ul>
+          <li><label><input type="checkbox" name="replace-tabindent"> タブインデントを半角スペース 2 個に置換</label></li>
+          <li><label><input type="checkbox" name="delete-whitespace-start"> 行頭のホワイトスペースを削除</label></li>
+          <li><label><input type="checkbox" name="delete-whitespace-end"> 行末のホワイトスペースを削除</label></li>
+          <li><label><input type="checkbox" name="delete-blankline"> 空行を削除</label></li>
+          <li><label><input type="checkbox" name="replace-linebreak"> 改行を半角スペース 1 個に置換</label></li>
+          <li><label><input type="checkbox" name="delete-linebreak"> 改行を削除</label></li>
+          <li><label><input type="checkbox" name="escape"> 特殊文字をエスケープ (&amp; &lt; &gt; &quot; &apos;)</label></li>
+          <li><label><input type="checkbox" name="unescape"> 特殊文字をアンエスケープ</label></li>
+        </ul>
+        <p><button type="button">実行</button></p>
+        <output>
+          <h2>結果</h2>
+          <p><textarea name="result" cols="80" rows="10" aria-label="結果" readonly></textarea></p>
+        </output>
+      </form>
+    </main>
+    <footer>
+      <p>© 2026 Ootani Hirotsugu</p>
+    </footer>
+  </body>
+</html>

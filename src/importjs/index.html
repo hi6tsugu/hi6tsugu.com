@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta name="description" content="ImportJS: JS ファイルや CSS ファイルの読み込み記述を集約できるライブラリー">
+    <title>ImportJS - hi6tsugu.com</title>
+    <link rel="canonical" href="https://hi6tsugu.com/importjs/">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/scripts/theme.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" width="128" height="128" alt="">
+        hi6tsugu.com
+      </a>
+    </header>
+    <main>
+      <hgroup>
+        <h1>ImportJS</h1>
+        <p>インポート記述集約ライブラリー</p>
+      </hgroup>
+      <h2>ダウンロード</h2>
+      <ul>
+        <li><a href="/assets/downloads/import-1.20131006.js" download>import-1.20131006.js</a></li>
+      </ul>
+      <h2>リファレンス</h2>
+      <h3><code>Import.js(filepath)</code></h3>
+      <p>JS ファイルをインポート。</p>
+      <dl>
+        <dt><code>filepath: string</code></dt>
+        <dd>JS ファイルのパス。ドキュメントルートからの絶対パス、または本ライブラリーを配置したディレクトリーを基点とした相対パス</dd>
+      </dl>
+      <h3><code>Import.css(filepath, media)</code></h3>
+      <p>CSS ファイルをインポート。</p>
+      <dl>
+        <dt><code>filepath: string</code></dt>
+        <dd>CSS ファイルのパス。ドキュメントルートからの絶対パス、または本ライブラリーを配置したディレクトリーを基点とした相対パス</dd>
+        <dt><code>media?: string</code></dt>
+        <dd>CSS ファイルの内容を適用するメディア。省略した場合のデフォルト値は <code>all</code></dd>
+      </dl>
+      <h3><code>Import.path()</code></h3>
+      <p>インポートの基点となるディレクトリーのパス (<code>string</code>) を取得。</p>
+      <h3><code>Import.version()</code></h3>
+      <p>バージョン (<code>string</code>) を取得。</p>
+      <h2>使用例</h2>
+      <dl>
+        <dt>HTML</dt>
+        <dd>
+          <pre><code>&lt;head&gt;
+  &lt;script src=&quot;path/to/import-1.20131006.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;path/to/main.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+        </dd>
+        <dt>main.js</dt>
+        <dd>
+          <pre><code>Import.js(&apos;jquery-1.7.2.min.js&apos;);
+Import.js(&apos;jquery.easing.1.3.js&apos;);
+Import.js(&apos;action.js&apos;);
+Import.css(&apos;../style/modal.css&apos;, &apos;screen&apos;);
+Import.js(&apos;modal.js&apos;);</code></pre>
+        </dd>
+      </dl>
+      <h2>注意事項</h2>
+      <ul>
+        <li><code>&lt;head&gt;</code> 内でのみ動作</li>
+        <li>実行順序を維持するため <code>document.writeln()</code> を使用</li>
+        <li>同一ファイルの多重読み込み回避は本ライブラリーで読み込んだファイルのみが対象。また、同一ファイルかどうかはファイル名のみで判断</li>
+      </ul>
+      <h2>更新履歴</h2>
+      <h3>v1.20131006</h3>
+      <ul>
+        <li>新規作成</li>
+      </ul>
+    </main>
+    <footer>
+      <p>© 2026 Ootani Hirotsugu</p>
+    </footer>
+  </body>
+</html>

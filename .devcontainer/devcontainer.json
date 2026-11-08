@@ -1,0 +1,52 @@
+{
+  "name": "hi6tsugu.com",
+  "image": "mcr.microsoft.com/devcontainers/base:3-ubuntu24.04",
+  "features": {
+    // ホストと同じ UID の一般ユーザーがいると updateRemoteUserUID が効かないため、既存の一般ユーザーを削除
+    "./features/delete-regular-users": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "dcuser",
+      "installZsh": false,
+      "installOhMyZsh": false
+    }
+  },
+  "overrideFeatureInstallOrder": [
+    "./features/delete-regular-users",
+    "ghcr.io/devcontainers/features/common-utils"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    // Claude Code の設定をリビルド後も保持
+    "source=${localWorkspaceFolderBasename}--claude-config,target=/home/dcuser/.claude,type=volume"
+  ],
+  "runArgs": [
+    "--env-file",
+    "${localWorkspaceFolder}/.env"
+  ],
+  "containerEnv": {
+    // .claude.json の保存先を変更
+    "CLAUDE_CONFIG_DIR": "/home/dcuser/.claude"
+  },
+  "remoteEnv": {
+    // claude コマンドをパスに追加
+    "PATH": "/home/dcuser/.local/bin:${containerEnv:PATH}"
+  },
+  "remoteUser": "dcuser",
+  "initializeCommand": "sh \"${localWorkspaceFolder}/.devcontainer/initialize.sh\"",
+  "postCreateCommand": "sh \"${containerWorkspaceFolder}/.devcontainer/post-create.sh\"",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "EditorConfig.EditorConfig",
+        "ms-vscode.live-server",
+        "sohamkamani.code-eol"
+      ],
+      "settings": {
+        "livePreview.serverRoot": "src",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
