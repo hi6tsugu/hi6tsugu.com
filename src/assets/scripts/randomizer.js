@@ -14,6 +14,11 @@
     ));
     return Number.isInteger(data) ? data : 0;
   }
+  function randomIndex(length) {
+    const threshold = 2 ** 32 - (2 ** 32 % length);
+    const [value] = crypto.getRandomValues(new Uint32Array(1));
+    return value < threshold ? value % length : randomIndex(length);
+  }
   function handle() {
     const seed = (form.seedNumber.checked ? '0123456789' : '')
       + (form.seedLowercase.checked ? 'abcdefghijklmnopqrstuvwxyz' : '')
@@ -36,7 +41,7 @@
     }
     form.result.value = Array(total).fill('').map((s) => {
       for (let i = 0; i < count; ++ i) {
-        s += String(seed[Math.floor(Math.random() * seed.length)]);
+        s += String(seed[randomIndex(seed.length)]);
       }
       return s;
     }).join('\n');
